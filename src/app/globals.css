@@ -1,0 +1,84 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@import url('https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800;900&display=swap');
+
+:root {
+  --g: #1a6b3c;
+  --gd: #134d2c;
+  --gl: #e8f5ee;
+  --gm: #2d8a52;
+  --y: #f5c518;
+  --yl: #fffbea;
+  --yd: #d4a90d;
+  --bg: #f0f4f1;
+  --s: #fff;
+  --s2: #f7faf8;
+  --t: #1a2e22;
+  --t2: #4a6257;
+  --t3: #8aab98;
+  --b: #d4e6db;
+  --bl: #eaf3ed;
+  --r: #e74c3c;
+  --rl: #fdecea;
+  --u: #2563eb;
+  --ul: #eff6ff;
+  --o: #f59e0b;
+  --ol: #fffbeb;
+}
+
+body.dark {
+  --bg: #0f1a14;
+  --s: #1a2e22;
+  --s2: #142010;
+  --t: #e8f5ee;
+  --t2: #8aab98;
+  --t3: #4a6257;
+  --b: #2d4a38;
+  --bl: #243b2d;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+body {
+  font-family: 'Plus Jakarta Sans', sans-serif;
+  background: var(--bg);
+  color: var(--t);
+  min-height: 100vh;
+}
+
+@layer utilities {
+  .text-balance {
+    text-wrap: balance;
+  }
+}
+
+/* Smooth transitions */
+@media (prefers-reduced-motion: no-preference) {
+  * {
+    transition-duration: 150ms;
+    transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
+  }
+}
+
+/* Custom scrollbar */
+::-webkit-scrollbar {
+  width: 8px;
+  height: 8px;
+}
+
+::-webkit-scrollbar-track {
+  background: var(--s2);
+}
+
+::-webkit-scrollbar-thumb {
+  background: var(--b);
+  border-radius: 4px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: var(--t3);
+}
