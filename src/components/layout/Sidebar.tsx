@@ -148,10 +148,29 @@ export default function Sidebar() {
             >
               JO
             </div>
-            <div>
-              <div className="text-[0.78rem] font-semibold text-white">John Okello</div>
+            <div className="flex-1 min-w-0">
+              <div className="text-[0.78rem] font-semibold text-white truncate">John Okello</div>
               <div className="text-[0.68rem] text-white/45">Super Admin</div>
             </div>
+            <Link
+              href="/login"
+              className="text-white/60 hover:text-white transition-colors"
+              title="Logout"
+            >
+              <svg
+                viewBox="0 0 24 24"
+                className="w-4 h-4"
+                fill="none"
+                stroke="currentColor"
+                strokeWidth="2"
+                strokeLinecap="round"
+                strokeLinejoin="round"
+              >
+                <path d="M9 21H5a2 2 0 01-2-2V5a2 2 0 012-2h4" />
+                <polyline points="16 17 21 12 16 7" />
+                <line x1="21" y1="12" x2="9" y2="12" />
+              </svg>
+            </Link>
           </div>
         </div>
       </aside>

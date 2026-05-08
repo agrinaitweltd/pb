@@ -69,6 +69,7 @@ pb/
 
 | Page | Route | Purpose |
 |------|-------|---------|
+| Login | `/login` | Admin authentication |
 | Dashboard | `/` | Home overview |
 | Bookings | `/bookings` | Manage tour bookings |
 | Tours | `/tours` | Manage tour packages |

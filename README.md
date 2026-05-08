@@ -4,6 +4,7 @@ A professional tourism operations dashboard for managing bookings, tour packages
 
 ## Features
 
+- **Login Page** - Professional authentication interface
 - **Dashboard Overview** - Real-time analytics and booking insights
 - **Booking Management** - View, accept, reject, and manage tour bookings
 - **Tour Package Management** - Create, edit, and manage safari packages
