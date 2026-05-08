@@ -1,6 +1,5 @@
 'use client';
 
-import { useState } from 'react';
 import Link from 'next/link';
 import { usePathname } from 'next/navigation';
 import { 
@@ -22,6 +21,11 @@ interface NavItem {
   badge?: number;
 }
 
+interface SidebarProps {
+  isOpen: boolean;
+  onClose: () => void;
+}
+
 const navItems: { [key: string]: NavItem[] } = {
   Main: [
     { label: 'Dashboard', href: '/', icon: LayoutDashboard },
@@ -38,24 +42,23 @@ const navItems: { [key: string]: NavItem[] } = {
   ],
 };
 
-export default function Sidebar() {
+export default function Sidebar({ isOpen, onClose }: SidebarProps) {
   const pathname = usePathname();
-  const [isMobileOpen, setIsMobileOpen] = useState(false);
 
   return (
     <>
       {/* Mobile Overlay */}
-      {isMobileOpen && (
+      {isOpen && (
         <div
           className="fixed inset-0 bg-black/50 z-40 lg:hidden"
-          onClick={() => setIsMobileOpen(false)}
+          onClick={onClose}
         />
       )}
 
       {/* Sidebar */}
       <aside
-        className={`fixed left-0 top-0 h-screen w-64 bg-green-dark z-50 flex flex-direction-col transition-transform lg:translate-x-0 ${
-          isMobileOpen ? 'translate-x-0' : '-translate-x-full'
+        className={`fixed left-0 top-0 h-screen w-64 bg-green-dark z-50 flex flex-col transition-transform lg:translate-x-0 ${
+          isOpen ? 'translate-x-0' : '-translate-x-full'
         }`}
         style={{ backgroundColor: 'var(--gd)' }}
       >

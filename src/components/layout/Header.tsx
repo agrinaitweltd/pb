@@ -6,9 +6,10 @@ import { Search, Bell, Sun, Menu } from 'lucide-react';
 interface HeaderProps {
   title: string;
   subtitle?: string;
+  onMenuClick: () => void;
 }
 
-export default function Header({ title, subtitle }: HeaderProps) {
+export default function Header({ title, subtitle, onMenuClick }: HeaderProps) {
   const [isDark, setIsDark] = useState(false);
 
   const toggleDarkMode = () => {
@@ -22,7 +23,7 @@ export default function Header({ title, subtitle }: HeaderProps) {
       style={{ background: 'var(--s)', borderColor: 'var(--bl)' }}
     >
       {/* Mobile Menu Button */}
-      <button className="lg:hidden p-1.5">
+      <button className="lg:hidden p-1.5" onClick={onMenuClick}>
         <Menu className="w-5 h-5" style={{ stroke: 'var(--t)' }} />
       </button>
 

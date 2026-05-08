@@ -1,5 +1,6 @@
 'use client';
 
+import { useState } from 'react';
 import { usePathname } from 'next/navigation';
 import Sidebar from '@/components/layout/Sidebar';
 import Header from '@/components/layout/Header';
@@ -21,13 +22,18 @@ const pageTitles: { [key: string]: { title: string; subtitle?: string } } = {
 export default function DashboardLayout({ children }: DashboardLayoutProps) {
   const pathname = usePathname();
   const pageInfo = pageTitles[pathname] || { title: 'Dashboard' };
+  const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
 
   return (
     <div className="flex min-h-screen" style={{ background: 'var(--bg)' }}>
-      <Sidebar />
+      <Sidebar isOpen={isMobileMenuOpen} onClose={() => setIsMobileMenuOpen(false)} />
       
       <div className="flex-1 ml-0 lg:ml-64 flex flex-col min-h-screen">
-        <Header title={pageInfo.title} subtitle={pageInfo.subtitle} />
+        <Header 
+          title={pageInfo.title} 
+          subtitle={pageInfo.subtitle}
+          onMenuClick={() => setIsMobileMenuOpen(true)}
+        />
         
         <main className="flex-1 p-6 overflow-y-auto">
           {children}
