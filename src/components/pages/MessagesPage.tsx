@@ -1,25 +1,22 @@
-import { MessageSquare, Search, Send } from 'lucide-react';
-import { Card, CardHeader, CardBody } from '@/components/ui/Card';
+import { MessageSquare, Search } from 'lucide-react';
 import EmptyState from '@/components/ui/EmptyState';
+import PageIntro from '@/components/ui/PageIntro';
 
 export default function MessagesPage() {
   return (
-    <div>
-      {/* Page Header */}
-      <div className="mb-6">
-        <h1 className="text-2xl font-extrabold leading-tight" style={{ color: 'var(--t)' }}>
-          Messages <span style={{ color: 'var(--g)' }}>Inbox</span>
-        </h1>
-        <p className="text-[0.83rem] mt-0.5" style={{ color: 'var(--t2)' }}>
-          Manage customer enquiries and communications.
-        </p>
-      </div>
+    <div className="space-y-4">
+      <PageIntro
+        label="Support Desk"
+        title="Messages"
+        accent="Inbox"
+        description="Manage enquiries, booking conversations, and customer communication threads in one inbox workflow."
+      />
 
       {/* Messages Interface */}
       <div className="grid grid-cols-1 lg:grid-cols-3 gap-0 rounded-xl border overflow-hidden" style={{ background: 'var(--s)', borderColor: 'var(--bl)', boxShadow: 'var(--sh)' }}>
         {/* Inbox List */}
         <div className="border-r lg:col-span-1" style={{ borderColor: 'var(--bl)' }}>
-          <div className="p-3.5 border-b" style={{ borderColor: 'var(--bl)' }}>
+          <div className="p-4 border-b" style={{ borderColor: 'var(--bl)' }}>
             <h3 className="text-[0.87rem] font-bold mb-2" style={{ color: 'var(--t)' }}>
               Inbox
             </h3>

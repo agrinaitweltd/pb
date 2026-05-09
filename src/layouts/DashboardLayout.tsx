@@ -35,8 +35,10 @@ export default function DashboardLayout({ children }: DashboardLayoutProps) {
           onMenuClick={() => setIsMobileMenuOpen(true)}
         />
         
-        <main className="flex-1 p-6 overflow-y-auto">
-          {children}
+        <main className="flex-1 p-4 sm:p-6 overflow-y-auto">
+          <div className="mx-auto w-full max-w-[1400px]">
+            {children}
+          </div>
         </main>
       </div>
     </div>

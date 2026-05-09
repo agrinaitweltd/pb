@@ -10,8 +10,8 @@ import {
   Bell,
   Save
 } from 'lucide-react';
-import { Card } from '@/components/ui/Card';
 import Button from '@/components/ui/Button';
+import PageIntro from '@/components/ui/PageIntro';
 
 const settingsSections = [
   { id: 'general', label: 'General Settings', icon: SettingsIcon },
@@ -26,21 +26,18 @@ export default function SettingsPage() {
   const [activeSection, setActiveSection] = useState('general');
 
   return (
-    <div>
-      {/* Page Header */}
-      <div className="mb-6">
-        <h1 className="text-2xl font-extrabold leading-tight" style={{ color: 'var(--t)' }}>
-          Settings <span style={{ color: 'var(--g)' }}>Configuration</span>
-        </h1>
-        <p className="text-[0.83rem] mt-0.5" style={{ color: 'var(--t2)' }}>
-          Configure system integrations and preferences.
-        </p>
-      </div>
+    <div className="space-y-4">
+      <PageIntro
+        label="System"
+        title="Settings"
+        accent="Configuration"
+        description="Manage integrations, notifications, and operational preferences for the admin platform."
+      />
 
       {/* Settings Layout */}
       <div className="grid grid-cols-1 lg:grid-cols-4 gap-0 rounded-xl border overflow-hidden" style={{ background: 'var(--s)', borderColor: 'var(--bl)', boxShadow: 'var(--sh)' }}>
         {/* Sidebar Navigation */}
-        <div className="lg:border-r py-3.5" style={{ borderColor: 'var(--bl)' }}>
+        <div className="lg:border-r py-3" style={{ borderColor: 'var(--bl)' }}>
           {settingsSections.map((section) => {
             const Icon = section.icon;
             const isActive = activeSection === section.id;
@@ -48,7 +45,7 @@ export default function SettingsPage() {
               <button
                 key={section.id}
                 onClick={() => setActiveSection(section.id)}
-                className={`w-full flex items-center gap-2 px-4 py-2.5 text-[0.8rem] font-medium transition-all ${
+                className={`w-full flex items-center gap-2 px-4 py-2.5 text-[0.8rem] font-medium transition-all text-left ${
                   isActive ? 'border-l-3 font-semibold' : ''
                 }`}
                 style={
@@ -259,7 +256,7 @@ function IntegrationCard({
 }) {
   return (
     <div
-      className="rounded-lg border p-3.5 flex items-center justify-between transition-colors hover:border-green-primary"
+      className="rounded-lg border p-3.5 flex items-center justify-between gap-3 transition-colors hover:border-green-primary"
       style={{ background: 'var(--s)', borderColor: 'var(--bl)' }}
     >
       <div>
