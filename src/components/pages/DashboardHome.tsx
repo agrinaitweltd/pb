@@ -1,4 +1,15 @@
-import { FileText, Clock, CheckCircle, DollarSign, Plus, Calendar } from 'lucide-react';
+import {
+  FileText,
+  Clock,
+  CheckCircle,
+  DollarSign,
+  Plus,
+  Calendar,
+  MessageSquare,
+  CreditCard,
+  MapPin,
+  Users,
+} from 'lucide-react';
 import StatCard from '@/components/ui/StatCard';
 import { Card, CardHeader, CardBody } from '@/components/ui/Card';
 import Button from '@/components/ui/Button';
@@ -7,59 +18,36 @@ import EmptyState from '@/components/ui/EmptyState';
 export default function DashboardHome() {
   return (
     <div className="space-y-4">
-      {/* Page Header */}
-      <div className="flex items-start justify-between gap-3 flex-wrap">
+      <section className="flex items-start justify-between gap-3 flex-wrap">
         <div>
           <h1 className="text-2xl font-extrabold leading-tight" style={{ color: 'var(--t)' }}>
             Dashboard <span style={{ color: 'var(--g)' }}>Overview</span>
           </h1>
-          <p className="text-[0.83rem] mt-0.5" style={{ color: 'var(--t2)' }}>
-            Welcome back, John. Here's what's happening today.
+          <p className="text-[0.84rem] mt-1" style={{ color: 'var(--t2)' }}>
+            Central workspace for bookings, payments, enquiries, reservations, and team follow-ups.
           </p>
         </div>
-        <div className="flex gap-2">
+        <div className="flex gap-2 flex-wrap">
           <Button variant="outline" size="sm" icon={<Calendar className="w-4 h-4" />}>
             May 2026
           </Button>
           <Button variant="primary" size="sm" icon={<Plus className="w-4 h-4" />}>
-            New Booking
+            Create Booking
           </Button>
         </div>
-      </div>
+      </section>
 
-      <Card className="relative overflow-hidden">
-        <CardBody className="!p-0">
-          <div
-            className="px-5 py-5 md:px-6 md:py-6 flex items-start justify-between gap-4 flex-wrap"
-            style={{
-              background:
-                'linear-gradient(135deg, color-mix(in srgb, var(--g) 18%, var(--s)) 0%, color-mix(in srgb, var(--y) 12%, var(--s)) 100%)',
-            }}
-          >
-            <div className="max-w-2xl">
-              <p className="text-[0.72rem] uppercase tracking-[0.14em] font-bold" style={{ color: 'var(--gd)' }}>
-                Operations Hub
-              </p>
-              <h2 className="text-xl md:text-2xl font-extrabold mt-1" style={{ color: 'var(--gd)' }}>
-                Your tourism operations command center
-              </h2>
-              <p className="text-sm mt-2" style={{ color: 'var(--t2)' }}>
-                This dashboard is API-ready. Connect bookings, payments, enquiries, and customer data to activate live operations.
-              </p>
-            </div>
-            <div className="flex gap-2">
-              <Button variant="outline" size="sm">
-                Configure Integrations
-              </Button>
-              <Button variant="primary" size="sm" icon={<Plus className="w-4 h-4" />}>
-                Add Booking
-              </Button>
-            </div>
+      <Card>
+        <CardBody>
+          <div className="grid grid-cols-1 md:grid-cols-4 gap-3.5">
+            <QuickAction icon={<FileText className="w-4 h-4" />} title="Booking Queue" subtitle="Review new requests" />
+            <QuickAction icon={<CreditCard className="w-4 h-4" />} title="Payment Desk" subtitle="Track payment statuses" />
+            <QuickAction icon={<MessageSquare className="w-4 h-4" />} title="Customer Inbox" subtitle="Reply to enquiries" />
+            <QuickAction icon={<MapPin className="w-4 h-4" />} title="Tour Catalog" subtitle="Update package details" />
           </div>
         </CardBody>
       </Card>
 
-      {/* Stats Grid */}
       <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-3.5">
         <StatCard
           label="Total Bookings"
@@ -87,93 +75,151 @@ export default function DashboardHome() {
         />
       </div>
 
-      {/* Main Content Grid */}
       <div className="grid grid-cols-1 lg:grid-cols-3 gap-3.5">
-        {/* Booking Trends */}
         <Card className="lg:col-span-2">
-          <CardHeader title="Booking Trends" subtitle="Monthly booking & revenue analytics" />
-          <CardBody>
-            <EmptyState
-              icon="package"
-              title="No Analytics Data Yet"
-              description="Booking trends and analytics will appear here once you start receiving bookings. Connect your backend API to display real-time data."
-            />
+          <CardHeader title="Recent Bookings" subtitle="No bookings available yet" />
+          <CardBody className="!p-0">
+            <div className="overflow-x-auto">
+              <table className="w-full text-sm">
+                <thead style={{ background: 'var(--s2)' }}>
+                  <tr>
+                    <th className="text-left px-4 py-3 text-[0.72rem] uppercase tracking-wide" style={{ color: 'var(--t2)' }}>Booking Ref</th>
+                    <th className="text-left px-4 py-3 text-[0.72rem] uppercase tracking-wide" style={{ color: 'var(--t2)' }}>Customer</th>
+                    <th className="text-left px-4 py-3 text-[0.72rem] uppercase tracking-wide" style={{ color: 'var(--t2)' }}>Tour</th>
+                    <th className="text-left px-4 py-3 text-[0.72rem] uppercase tracking-wide" style={{ color: 'var(--t2)' }}>Status</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  <tr>
+                    <td colSpan={4} className="px-4 py-12">
+                      <EmptyState
+                        icon="inbox"
+                        title="No bookings available yet"
+                        description="Bookings will appear here once customers submit requests or your team creates reservations."
+                      />
+                    </td>
+                  </tr>
+                </tbody>
+              </table>
+            </div>
           </CardBody>
         </Card>
 
-        {/* Destinations */}
         <Card>
-          <CardHeader title="Destinations" subtitle="Bookings by location" />
+          <CardHeader title="Booking Activity" subtitle="Live pipeline status" />
           <CardBody>
-            <EmptyState
-              icon="package"
-              title="No Destination Data"
-              description="Popular destinations and statistics will be displayed here once bookings start coming in."
-            />
+            <div className="space-y-3">
+              <ActivityRow label="New" value="—" color="var(--u)" />
+              <ActivityRow label="Pending Review" value="—" color="var(--yd)" />
+              <ActivityRow label="Confirmed" value="—" color="var(--g)" />
+              <ActivityRow label="Completed" value="—" color="var(--t2)" />
+            </div>
           </CardBody>
         </Card>
       </div>
 
-      {/* Recent Activity & Upcoming Tours */}
       <div className="grid grid-cols-1 lg:grid-cols-2 gap-3.5">
         <Card>
           <CardHeader
-            title="Recent Activity"
+            title="Notifications"
             action={
               <Button variant="outline" size="sm">
-                View All
+                Manage
               </Button>
             }
           />
           <CardBody className="!p-0">
             <EmptyState
               icon="inbox"
-              title="No Recent Activity"
-              description="Customer bookings, payments, and enquiries will appear here as they happen."
+              title="No notifications yet"
+              description="System alerts, booking updates, payment events, and enquiry notifications will appear here."
             />
           </CardBody>
         </Card>
 
         <Card>
           <CardHeader
-            title="Upcoming Tours"
+            title="Team Workspace"
             action={
               <Button variant="outline" size="sm">
-                View All
+                Open Board
               </Button>
             }
           />
           <CardBody className="!p-0">
             <EmptyState
-              icon="package"
-              title="No Upcoming Tours"
-              description="Scheduled tours and safari packages will be listed here once bookings are confirmed."
+              icon="question"
+              title="No internal notes yet"
+              description="Use this space later for assignment notes, follow-ups, and internal communication linked to bookings."
             />
           </CardBody>
         </Card>
       </div>
 
-      {/* Notifications */}
       <Card>
-        <CardHeader
-          title="Notifications"
-          action={
-            <span
-              className="px-2 py-0.5 rounded-full text-[0.68rem] font-semibold"
-              style={{ background: 'var(--gl)', color: 'var(--g)' }}
-            >
-              0 New
-            </span>
-          }
-        />
+        <CardHeader title="Customers & Communications" subtitle="No customer activity yet" />
         <CardBody>
-          <EmptyState
-            icon="inbox"
-            title="No Notifications"
-            description="You're all caught up! New bookings, enquiries, and system alerts will appear here."
-          />
+          <div className="grid grid-cols-1 md:grid-cols-2 gap-3.5">
+            <MiniPanel
+              icon={<Users className="w-4 h-4" />}
+              title="Customer Profiles"
+              description="No profiles yet. Customer records will appear after first bookings are created."
+            />
+            <MiniPanel
+              icon={<MessageSquare className="w-4 h-4" />}
+              title="Enquiries"
+              description="No enquiries yet. Incoming web and WhatsApp messages will appear here."
+            />
+          </div>
         </CardBody>
       </Card>
+    </div>
+  );
+}
+
+function QuickAction({ icon, title, subtitle }: { icon: React.ReactNode; title: string; subtitle: string }) {
+  return (
+    <button
+      className="text-left rounded-lg border p-3.5 hover:-translate-y-0.5"
+      style={{ background: 'var(--s)', borderColor: 'var(--bl)', boxShadow: 'var(--sh)' }}
+    >
+      <div className="w-8 h-8 rounded-md flex items-center justify-center mb-2" style={{ background: 'var(--gl)', color: 'var(--g)' }}>
+        {icon}
+      </div>
+      <p className="text-[0.84rem] font-bold" style={{ color: 'var(--t)' }}>{title}</p>
+      <p className="text-[0.75rem] mt-0.5" style={{ color: 'var(--t2)' }}>{subtitle}</p>
+    </button>
+  );
+}
+
+function ActivityRow({ label, value, color }: { label: string; value: string; color: string }) {
+  return (
+    <div className="flex items-center justify-between rounded-lg border px-3 py-2" style={{ borderColor: 'var(--bl)', background: 'var(--s2)' }}>
+      <div className="flex items-center gap-2">
+        <span className="w-2.5 h-2.5 rounded-full" style={{ background: color }} />
+        <span className="text-[0.8rem] font-semibold" style={{ color: 'var(--t)' }}>{label}</span>
+      </div>
+      <span className="text-[0.78rem]" style={{ color: 'var(--t2)' }}>{value}</span>
+    </div>
+  );
+}
+
+function MiniPanel({
+  icon,
+  title,
+  description,
+}: {
+  icon: React.ReactNode;
+  title: string;
+  description: string;
+}) {
+  return (
+    <div className="rounded-lg border p-4" style={{ borderColor: 'var(--bl)', background: 'var(--s2)' }}>
+      <div className="w-8 h-8 rounded-md flex items-center justify-center mb-2" style={{ background: 'var(--gl)', color: 'var(--g)' }}>
+        {icon}
+      </div>
+      <p className="text-[0.86rem] font-bold" style={{ color: 'var(--t)' }}>{title}</p>
+      <p className="text-[0.78rem] mt-1" style={{ color: 'var(--t2)' }}>{description}</p>
     </div>
   );
 }
