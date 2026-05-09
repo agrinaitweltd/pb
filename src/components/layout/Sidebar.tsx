@@ -55,10 +55,10 @@ export default function Sidebar({ isOpen, onClose }: SidebarProps) {
 
       {/* Sidebar */}
       <aside
-        className={`fixed left-0 top-0 h-screen w-64 z-50 flex flex-col transition-transform duration-300 shadow-2xl lg:shadow-none lg:static lg:z-auto lg:translate-x-0 ${
+        className={`fixed left-0 top-0 h-screen w-64 z-50 flex flex-col transition-transform duration-300 shadow-2xl lg:shadow-none lg:sticky lg:top-0 lg:z-auto lg:translate-x-0 lg:border-r ${
           isOpen ? 'translate-x-0' : '-translate-x-full'
         }`}
-        style={{ backgroundColor: 'var(--gd)' }}
+        style={{ backgroundColor: 'var(--gd)', borderColor: 'rgba(255,255,255,0.08)' }}
       >
         {/* Logo */}
         <div className="px-5 py-5 border-b border-white/10">
