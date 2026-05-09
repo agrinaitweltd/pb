@@ -12,7 +12,7 @@ interface StatCardProps {
 export default function StatCard({ label, value, icon, trend, iconBg }: StatCardProps) {
   return (
     <div
-      className="rounded-xl p-4.5 border transition-all hover:-translate-y-0.5 hover:shadow-cardHover"
+      className="rounded-xl p-[18px] border transition-all hover:-translate-y-0.5"
       style={{
         background: 'var(--s)',
         borderColor: 'var(--bl)',

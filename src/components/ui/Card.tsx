@@ -27,7 +27,7 @@ interface CardHeaderProps {
 export function CardHeader({ title, subtitle, action }: CardHeaderProps) {
   return (
     <div
-      className="px-4.5 py-4 pb-3 flex items-center justify-between border-b"
+      className="px-[18px] py-4 pb-3 flex items-center justify-between gap-3 border-b"
       style={{ borderColor: 'var(--bl)' }}
     >
       <div>
@@ -51,5 +51,5 @@ interface CardBodyProps {
 }
 
 export function CardBody({ children, className = '' }: CardBodyProps) {
-  return <div className={`p-4.5 ${className}`}>{children}</div>;
+  return <div className={`p-[18px] ${className}`}>{children}</div>;
 }

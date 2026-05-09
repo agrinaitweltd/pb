@@ -6,9 +6,9 @@ import EmptyState from '@/components/ui/EmptyState';
 
 export default function DashboardHome() {
   return (
-    <div>
+    <div className="space-y-4">
       {/* Page Header */}
-      <div className="flex items-start justify-between mb-6 gap-3 flex-wrap">
+      <div className="flex items-start justify-between gap-3 flex-wrap">
         <div>
           <h1 className="text-2xl font-extrabold leading-tight" style={{ color: 'var(--t)' }}>
             Dashboard <span style={{ color: 'var(--g)' }}>Overview</span>
@@ -27,8 +27,40 @@ export default function DashboardHome() {
         </div>
       </div>
 
+      <Card className="relative overflow-hidden">
+        <CardBody className="!p-0">
+          <div
+            className="px-5 py-5 md:px-6 md:py-6 flex items-start justify-between gap-4 flex-wrap"
+            style={{
+              background:
+                'linear-gradient(135deg, color-mix(in srgb, var(--g) 18%, var(--s)) 0%, color-mix(in srgb, var(--y) 12%, var(--s)) 100%)',
+            }}
+          >
+            <div className="max-w-2xl">
+              <p className="text-[0.72rem] uppercase tracking-[0.14em] font-bold" style={{ color: 'var(--gd)' }}>
+                Operations Hub
+              </p>
+              <h2 className="text-xl md:text-2xl font-extrabold mt-1" style={{ color: 'var(--gd)' }}>
+                Your tourism operations command center
+              </h2>
+              <p className="text-sm mt-2" style={{ color: 'var(--t2)' }}>
+                This dashboard is API-ready. Connect bookings, payments, enquiries, and customer data to activate live operations.
+              </p>
+            </div>
+            <div className="flex gap-2">
+              <Button variant="outline" size="sm">
+                Configure Integrations
+              </Button>
+              <Button variant="primary" size="sm" icon={<Plus className="w-4 h-4" />}>
+                Add Booking
+              </Button>
+            </div>
+          </div>
+        </CardBody>
+      </Card>
+
       {/* Stats Grid */}
-      <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-3.5 mb-5">
+      <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-3.5">
         <StatCard
           label="Total Bookings"
           value="—"
@@ -56,7 +88,7 @@ export default function DashboardHome() {
       </div>
 
       {/* Main Content Grid */}
-      <div className="grid grid-cols-1 lg:grid-cols-3 gap-3.5 mb-3.5">
+      <div className="grid grid-cols-1 lg:grid-cols-3 gap-3.5">
         {/* Booking Trends */}
         <Card className="lg:col-span-2">
           <CardHeader title="Booking Trends" subtitle="Monthly booking & revenue analytics" />
@@ -83,7 +115,7 @@ export default function DashboardHome() {
       </div>
 
       {/* Recent Activity & Upcoming Tours */}
-      <div className="grid grid-cols-1 lg:grid-cols-2 gap-3.5 mb-3.5">
+      <div className="grid grid-cols-1 lg:grid-cols-2 gap-3.5">
         <Card>
           <CardHeader
             title="Recent Activity"

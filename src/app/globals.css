@@ -26,6 +26,8 @@
   --ul: #eff6ff;
   --o: #f59e0b;
   --ol: #fffbeb;
+  --sh: 0 1px 2px rgba(20, 37, 28, 0.06), 0 8px 20px rgba(20, 37, 28, 0.06);
+  --shl: 0 8px 16px rgba(20, 37, 28, 0.08), 0 16px 28px rgba(20, 37, 28, 0.1);
 }
 
 body.dark {
@@ -37,6 +39,8 @@ body.dark {
   --t3: #4a6257;
   --b: #2d4a38;
   --bl: #243b2d;
+  --sh: 0 1px 2px rgba(0, 0, 0, 0.35), 0 8px 20px rgba(0, 0, 0, 0.3);
+  --shl: 0 10px 20px rgba(0, 0, 0, 0.45), 0 18px 30px rgba(0, 0, 0, 0.35);
 }
 
 * {
@@ -48,6 +52,9 @@ body {
   background: var(--bg);
   color: var(--t);
   min-height: 100vh;
+  background-image:
+    radial-gradient(circle at 10% 10%, rgba(26, 107, 60, 0.08), transparent 26%),
+    radial-gradient(circle at 90% 90%, rgba(245, 197, 24, 0.07), transparent 22%);
 }
 
 @layer utilities {
