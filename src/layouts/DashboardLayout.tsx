@@ -25,10 +25,10 @@ export default function DashboardLayout({ children }: DashboardLayoutProps) {
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
 
   return (
-    <div className="flex min-h-screen" style={{ background: 'var(--bg)' }}>
+    <div className="min-h-screen lg:grid lg:grid-cols-[16rem_minmax(0,1fr)]" style={{ background: 'var(--bg)' }}>
       <Sidebar isOpen={isMobileMenuOpen} onClose={() => setIsMobileMenuOpen(false)} />
       
-      <div className="flex-1 ml-0 lg:ml-64 flex flex-col min-h-screen">
+      <div className="flex flex-col min-h-screen min-w-0">
         <Header 
           title={pageInfo.title} 
           subtitle={pageInfo.subtitle}
